@@ -149,3 +149,7 @@ sudo /home/pi/ledmatrix/.venv/bin/python /home/pi/ledmatrix/ledmatrix_scroll.py 
 The scrolling program accepts environment overrides for the control panel:
 `LED_COUNT`, `LED_PIN`, `LED_BRIGHTNESS`, `LED_DMA`, `LED_MATRIX_SPEED`,
 `MATRIX_WIDTH`, and `MATRIX_HEIGHT`. Defaults match a 96-pixel 12 × 8 sign.
+
+The third Halloween option is `assets/halloween_marquee_3.png` with its matching
+`assets/halloween_marquee_3.txt`. It follows a pumpkin-patch story with a ghost
+and jack-o-lantern pair, a flickering house, a blinking cat, candy corn, and bats.
