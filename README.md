@@ -37,8 +37,9 @@ data and ground connections if its jumpers and contacts are sound.
 Check the strip markings for `DIN`/`DI`, `+5V`, and `GND`; data must enter at
 `DIN`, not `DOUT`. If the matrix uses two strips in one chain, connect the
 first strip's `DOUT` to the second strip's `DIN`. Power both from the 5 V supply
-with suitable wire, and keep their grounds common. The software expects the
-chain to start at LED 0 at the lower left and snake along alternating rows.
+with suitable wire, and keep their grounds common. The software maps image
+row 0 to the top row. The original sign mapping runs from LED 0 at the bottom
+right through the serpentine rows to LED 95 at the top right.
 
 ### Pin numbering
 
@@ -123,8 +124,9 @@ LED strip's color order.
   the shared ground, and consider the 74AHCT125 buffer.
 - **Only part of the matrix lights:** inspect the `DOUT`-to-`DIN` connection
   between strips and check the first unlit pixel and its power connections.
-- **Wrong orientation:** update the `myMatrix` mapping to fit the actual
-  bottom-left start and alternating row directions.
+- **Wrong orientation:** confirm the physical LED 0 location and row direction.
+  This build uses LED 0 at bottom right and LED 95 at top right, matching the
+  original `ledmatrixgood.py` mapping.
 - **Wrong colors:** adjust the channel order in `colourTuple()`.
 
 ## Credits

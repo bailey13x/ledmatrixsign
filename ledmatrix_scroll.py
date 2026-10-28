@@ -37,26 +37,14 @@ SPEED=float(os.environ.get("LED_MATRIX_SPEED", "0.1"))
 MATRIX_WIDTH=int(os.environ.get("MATRIX_WIDTH", "12"))
 MATRIX_HEIGHT=int(os.environ.get("MATRIX_HEIGHT", "8"))
 
-# LED matrix layout
-# A list converting LED string number to physical grid layout
-# Start with top right and continue right then down
-# For example, my string starts bottom right and has horizontal batons
-# which loop on alternate rows.
-#
-# Mine ends at the top right here:     -----------\
-# My last LED is number 95                        |
-#                                      /----------/
-#                                      |
-#                                      \----------\
-# The first LED is number 0                       |
-# Mine starts at the bottom left here: -----------/ 
-
-
-myMatrix = [
-    row * MATRIX_WIDTH + (col if row % 2 == 0 else MATRIX_WIDTH - 1 - col)
-    for row in range(MATRIX_HEIGHT)
-    for col in range(MATRIX_WIDTH)
-]
+# Match the original sign's mapping: LED 0 starts at bottom right and the
+# chain snakes across rows to LED 95 at top right. Image row 0 is the top row.
+myMatrix = []
+for row in range(MATRIX_HEIGHT):
+    physical_row = MATRIX_HEIGHT - 1 - row
+    for col in range(MATRIX_WIDTH):
+        physical_col = col if physical_row % 2 == 1 else MATRIX_WIDTH - 1 - col
+        myMatrix.append(physical_row * MATRIX_WIDTH + physical_col)
 
 
 # Feel free to write a fancy set of loops to populate myMatrix
