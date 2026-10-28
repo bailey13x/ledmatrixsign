@@ -23,19 +23,19 @@ from rpi_ws281x import PixelStrip, Color
 from PIL import Image
 
 # LED strip configuration:
-LED_COUNT      = 96      # Number of LED pixels.
-LED_PIN        = 18      # BCM GPIO 18 (physical header pin 12).
+LED_COUNT      = int(os.environ.get("LED_COUNT", "96"))
+LED_PIN        = int(os.environ.get("LED_PIN", "18"))      # BCM GPIO 18 = physical header pin 12.
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
-LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
-LED_BRIGHTNESS = 100     # Set to 0 for darkest and 255 for brightest
+LED_DMA        = int(os.environ.get("LED_DMA", "5"))
+LED_BRIGHTNESS = int(os.environ.get("LED_BRIGHTNESS", "100"))  # 0 darkest; 255 brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 
 # Speed of movement, in seconds (recommend 0.1-0.3) og .075
-SPEED=0.1
+SPEED=float(os.environ.get("LED_MATRIX_SPEED", "0.1"))
 
 # Size of your matrix
-MATRIX_WIDTH=12
-MATRIX_HEIGHT=8
+MATRIX_WIDTH=int(os.environ.get("MATRIX_WIDTH", "12"))
+MATRIX_HEIGHT=int(os.environ.get("MATRIX_HEIGHT", "8"))
 
 # LED matrix layout
 # A list converting LED string number to physical grid layout
@@ -52,14 +52,11 @@ MATRIX_HEIGHT=8
 # Mine starts at the bottom left here: -----------/ 
 
 
-myMatrix=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,
-         23,22,21,20,19,18,17,16,15,14,13,12,
-         24,25,26,27,28,29,30,31,32,33,34,35,
-         47,46,45,44,43,42,41,40,39,38,37,36,
-         48,49,50,51,52,53,54,55,56,57,58,59,
-         71,70,69,68,67,66,65,64,63,62,61,60,
-         72,73,74,75,76,77,78,79,80,81,82,83,
-         95,94,93,92,91,90,89,88,87,86,85,84]
+myMatrix = [
+    row * MATRIX_WIDTH + (col if row % 2 == 0 else MATRIX_WIDTH - 1 - col)
+    for row in range(MATRIX_HEIGHT)
+    for col in range(MATRIX_WIDTH)
+]
 
 
 # Feel free to write a fancy set of loops to populate myMatrix
@@ -71,8 +68,8 @@ myMatrix=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,
 # https://learn.adafruit.com/neopixels-on-raspberry-pi?view=all
 
 # Check that we have sensible width & height
-if MATRIX_WIDTH * MATRIX_HEIGHT != len(myMatrix):
-  raise Exception("Matrix width x height does not equal length of myMatrix")
+if MATRIX_WIDTH * MATRIX_HEIGHT != len(myMatrix) or LED_COUNT != len(myMatrix):
+  raise Exception("LED_COUNT must equal MATRIX_WIDTH x MATRIX_HEIGHT")
 
 def allonecolour(strip,colour):
   # Paint the entire matrix one colour

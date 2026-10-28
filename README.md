@@ -132,3 +132,18 @@ LED strip's color order.
 - Original scrolling program: Andrew Oakley, public domain, 2015:
   [Raspberry Pi Christmas LED Matrix](https://www.aoakley.com/articles/2015-11-18-raspberry-pi-christmas-led-matrix.php)
 - Build tutorial: [Adafruit NeoPixel Überguide for Raspberry Pi](https://learn.adafruit.com/neopixels-on-raspberry-pi)
+
+## Animated Halloween marquee
+
+A new long-form Halloween design is included at `assets/halloween_marquee.png`, with
+paired frame instructions in `assets/halloween_marquee.txt`. It uses pumpkin,
+candy corn, ghost, bat, and cat flipbook frames between bright Halloween phrases.
+Copy both files to the Pi with matching base names, then run:
+
+```sh
+sudo /home/pi/ledmatrix/.venv/bin/python /home/pi/ledmatrix/ledmatrix_scroll.py /home/pi/ledmatrix/halloween_marquee.png
+```
+
+The scrolling program accepts environment overrides for the control panel:
+`LED_COUNT`, `LED_PIN`, `LED_BRIGHTNESS`, `LED_DMA`, `LED_MATRIX_SPEED`,
+`MATRIX_WIDTH`, and `MATRIX_HEIGHT`. Defaults match a 96-pixel 12 × 8 sign.
