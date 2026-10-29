@@ -209,18 +209,18 @@ def main():
     args=p.parse_args()
     show=Show()
     program=[('Jack-o-lantern',pumpkin,'HAPPY HALLOWEEN','O'),
-             ('Eyes in the dark',eyes,'ENTER IF YOU DARE','G'),
-             ('Restless skull',skull,'BONE CHILLING','W'),
-             ('Bat swarm',bats,'AFTER DARK','P'),
+             ('Eyes in the dark',eyes,'BEWARE!','G'),
+             ('Restless skull',skull,'BONE ZONE','W'),
+             ('Bat swarm',bats,'BATS OUT!','P'),
              ('Ghost drifts past',ghost,'BOO!','W'),
              ('Witches brew',potion,'HOCUS POCUS','G'),
-             ('Watching cat',cat,'BAD LUCK','Y'),
+             ('Watching cat',cat,'MEOW!','Y'),
              ('Spider descends',spider,'CREEP IT REAL','P'),
-             ('Melting candle',candle,'WITCHING HOUR','O'),
+             ('Melting candle',candle,'CANDY OR CHAOS','O'),
              ('Pumpkin returns',pumpkin,'TRICK OR TREAT','O'),
-             ('Ghost farewell',ghost,'STAY SPOOKY','W')]
+             ('Ghost farewell',ghost,'STAY SPOOKY!','W')]
     for name,fn,caption,color in program:
-        show.scene(name,fn()); show.text(caption,color)
+        show.text(caption,color); show.scene(name,fn())
     strip=show.render(); assert strip.width<=12000
     args.output.mkdir(parents=True,exist_ok=True)
     strip.save(args.output/'halloween_midnight.png')
@@ -231,6 +231,15 @@ def main():
         # Full movie uses every one-pixel scroll step, with real playback timing.
         scaled=[led_view(f) for f in frames]
         scaled[0].save(args.preview/'midnight_full_preview.gif',save_all=True,append_images=scaled[1:],duration=durations,loop=0,optimize=True)
+        # A shorter, representative preview includes whole messages, never just sprites.
+        excerpt=Show()
+        for index in (0,4,9):
+            name,fn,caption,color=program[index]
+            excerpt.text(caption,color); excerpt.scene(name,fn()[:16])
+        excerpt_frames,excerpt_times=timeline(excerpt.render(),excerpt.commands,args.scroll,args.animation)
+        excerpt_leds=[led_view(frame) for frame in excerpt_frames]
+        excerpt_leds[0].save(args.preview/'midnight_messages_preview.gif',save_all=True,
+                            append_images=excerpt_leds[1:],duration=excerpt_times,loop=0,optimize=True)
         highlights=[]
         board=Image.new('RGB',(720,((len(show.scenes)+2)//3)*184),(12,14,20)); d=ImageDraw.Draw(board)
         for i,(name,seq) in enumerate(show.scenes):
