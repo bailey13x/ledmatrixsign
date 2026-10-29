@@ -153,3 +153,29 @@ The scrolling program accepts environment overrides for the control panel:
 The third Halloween option is `assets/halloween_marquee_3.png` with its matching
 `assets/halloween_marquee_3.txt`. It follows a pumpkin-patch story with a ghost
 and jack-o-lantern pair, a flickering house, a blinking cat, candy corn, and bats.
+
+## Halloween Midnight
+
+`assets/halloween_midnight.png` and its matching `.txt` provide a separate
+7043 x 8 show with 11 animation scenes: carved pumpkins, watching eyes, a skull,
+bats, ghosts, potion, a cat, a descending spider, and a candle. Short captions use
+native six-row lettering with one empty row above and below. Most letters are
+four pixels wide; nothing is horizontally stretched. Colors use the original
+sign's orange, green, yellow, magenta, red, and silver palette against black.
+
+Select `halloween_midnight.png` in the controller at port 9001 and press Play.
+Reload the page if the new asset is missing. The original `halov2.png` and boot
+service are unchanged. Playback lasts about 6:04 at dashboard settings of
+0.24 seconds per scrolling pixel and 0.29 seconds per animation frame; the
+dashboard overrides timing in the companion file. At the file's standalone
+defaults (0.10 / 0.15), the loop is about 2:47.
+
+The artwork source is included and requires Pillow:
+
+```sh
+python tools/build_midnight.py --output assets --preview previews --scroll 0.24 --animation 0.29
+```
+
+The full GIF preserves every viewport step and the selected timing. The separate
+highlights GIF shows excerpts of the animation scenes. The LED-style previews
+illustrate spacing but cannot reproduce the physical LEDs' exact brightness or color.
