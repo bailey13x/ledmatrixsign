@@ -200,27 +200,27 @@ def silly_skull():
 
 PROGRAM=[
  ('The pumpkin awakens',pumpkin_reveal,'HAPPY HALLOWEEN!','O'),
- ('A ghost opens the door',haunted_door,'WELCOME LITTLE MONSTERS','P'),
- ('Peekaboo eyes',eyes,'PEEK A BOO! WE SEE YOU','G'),
- ('Pumpkin peekaboo',pumpkin_peekaboo,'A LITTLE BOO JUST FOR YOU','W'),
+ ('A ghost opens the door',haunted_door,'WELCOME TO THE HAUNT','P'),
+ ('Peekaboo eyes',eyes,'ENTER IF YOU DARE','G'),
+ ('Pumpkin peekaboo',pumpkin_peekaboo,'PUMPKINS COME ALIVE','W'),
  ('A skeleton dances',skeleton,'SHAKE YOUR BONES!','W'),
- ('A silly skull winks',silly_skull,'SILLY TO THE BONE','W'),
+ ('A silly skull winks',silly_skull,'BAD TO THE BONE','W'),
  ('Flight across the moon',moon_bat,'WHEN THE MOON IS FULL','Y'),
  ('Bats take flight',bats,'THE BATS COME OUT','P'),
  ('Witch on a broom',witch,'WITCH WAY TO THE CANDY','G'),
- ('The cauldron bubbles',potion,'BUBBLE BUBBLE CANDY TROUBLE','G'),
- ('A candle burns',candle,'LET YOUR LITTLE LIGHT SHINE','O'),
- ('Ghost passes through',ghost_flyby,'BOO! HELLO TO YOU','W'),
- ('A friendly ghost waves',ghost_wave,'WAVE TO OUR GHOST FRIEND','W'),
- ('Owl spreads its wings',owl,'HOOT HOOT! YOU LOOK CUTE','Y'),
- ('Cat watches the crowd',cat,'PURR FECT HALLOWEEN','P'),
+ ('The cauldron bubbles',potion,'DOUBLE DOUBLE TOIL AND TROUBLE','G'),
+ ('A candle burns',candle,'FIRE BURN AND CAULDRON BUBBLE','O'),
+ ('Ghost passes through',ghost_flyby,'BOO! DID WE SCARE YOU','W'),
+ ('A friendly ghost waves',ghost_wave,'JUST HERE FOR THE BOOS','W'),
+ ('Owl spreads its wings',owl,'WHO GOES THERE','Y'),
+ ('Cat watches the crowd',cat,'BLACK CATS CROSS YOUR PATH','P'),
  ('Spider drops in',spider,'COME HANG WITH US','P'),
- ('A monster smiles and waves',monster,'MONSTER HUGS FOR EVERYONE','G'),
+ ('A monster smiles and waves',monster,'ITS ALIVE!','G'),
  ('A vampire opens his cape',vampire,'FANGS FOR STOPPING BY','P'),
  ('Candy unwraps',candy,'TRICK OR TREAT!','O'),
  ('The pumpkin lights up',pumpkin_reveal,'GIVE US SOMETHING GOOD TO EAT','Y'),
- ('The last dance',skeleton,'DO THE MONSTER WIGGLE','W'),
- ('A ghost says goodbye',ghost_flyby,'BE KIND AND STAY SPOOKY','W'),
+ ('The last dance',skeleton,'EAT DRINK AND BE SCARY','W'),
+ ('A ghost says goodbye',ghost_flyby,'STAY SPOOKY!','W'),
  ('Until next Halloween',pumpkin,'HAPPY HAUNTING!','O')]
 
 
@@ -230,7 +230,7 @@ def html_preview(strip_path, chapters, commands, scroll, animation, output):
           'scroll':scroll,'animation':animation}
     html='''<!doctype html><meta charset="utf-8"><title>Halloween After Dark</title>
 <style>body{background:#101017;color:#f3ede4;font:17px system-ui;max-width:850px;margin:40px auto;padding:20px}h1{color:#ff7300}canvas{width:100%;max-width:576px;image-rendering:pixelated;display:block;margin:25px auto}button,select{font:inherit;padding:10px;margin:5px;background:#252331;color:white;border:1px solid #63536e;border-radius:8px}#caption{font-size:25px;color:#ffb04a;min-height:35px}.muted{color:#bbb3c5}#progress{width:100%}</style>
-<h1>Halloween After Dark</h1><p>Family edition · 23 playful scenes · Native 12 × 8 artwork</p>
+<h1>Halloween After Dark</h1><p>23 Halloween scenes · Native 12 × 8 artwork · Full scrolling messages</p>
 <canvas id="screen" width="576" height="384"></canvas><div id="caption"></div>
 <p id="scene" class="muted"></p><button id="play">Pause</button><button id="restart">Restart chapter</button>
 <select id="chapters"></select><p><label>Preview speed <select id="rate"><option value="1">Actual timing</option><option value="2">2×</option><option value="3">3×</option></select></label></p>
