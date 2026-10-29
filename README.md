@@ -189,14 +189,20 @@ illustrate spacing but cannot reproduce the physical LEDs' exact brightness or c
 
 Select `halloween_after_dark.png` in the port-9001 controller (reload to discover
 new assets). Its matching `.txt` must accompany the PNG when copying manually.
-This separate 11850 x 8 banner contains 23 messages and animation chapters and
-runs approximately **14 minutes 30 seconds** with scroll 0.24 and animation 0.29.
+This separate 11987 x 8 family-edition banner contains 23 messages and animation
+chapters and runs approximately **15 minutes 14 seconds** with scroll 0.24 and
+animation 0.29.
 Existing banners, hardware mapping, brightness, and original boot autoplay remain
 unchanged. The additional length comes from more content, not a slower setting.
 
-New scenes include a hand rising beside a grave, dancing skeleton, a bat crossing
-the moon, a flying witch, an opening haunted doorway, an owl spreading its wings,
-a waking monster, a vampire opening its cape, and candy unwrapping. Captions range
+Scenes include a ghost playing peekaboo from a pumpkin, a dancing skeleton,
+a bat crossing the moon, a flying witch, a ghost at the door, a waving ghost,
+an owl spreading its wings, a smiling and waving monster, a vampire opening its
+cape, and candy unwrapping. The family revision replaces the grave/hand scene,
+removes glowing red character eyes, and replaces death/scare and drinking-pun
+captions with welcoming messages. Examples include WELCOME LITTLE MONSTERS,
+A LITTLE BOO JUST FOR YOU, MONSTER HUGS FOR EVERYONE, and DO THE MONSTER WIGGLE.
+Other captions range
 from HAPPY HALLOWEEN and TRICK OR TREAT to SHAKE YOUR BONES, WITCH WAY TO THE CANDY,
 and FANGS FOR STOPPING BY. Lettering remains six pixels high with equal margins.
 
