@@ -185,3 +185,31 @@ The full GIF preserves every viewport step and the selected timing. The separate
 highlights GIF shows excerpts of the animation scenes. The LED-style previews
 illustrate spacing but cannot reproduce the physical LEDs' exact brightness or color.
 
+## Halloween After Dark — extended show
+
+Select `halloween_after_dark.png` in the port-9001 controller (reload to discover
+new assets). Its matching `.txt` must accompany the PNG when copying manually.
+This separate 11850 x 8 banner contains 23 messages and animation chapters and
+runs approximately **14 minutes 30 seconds** with scroll 0.24 and animation 0.29.
+Existing banners, hardware mapping, brightness, and original boot autoplay remain
+unchanged. The additional length comes from more content, not a slower setting.
+
+New scenes include a hand rising beside a grave, dancing skeleton, a bat crossing
+the moon, a flying witch, an opening haunted doorway, an owl spreading its wings,
+a waking monster, a vampire opening its cape, and candy unwrapping. Captions range
+from HAPPY HALLOWEEN and TRICK OR TREAT to SHAKE YOUR BONES, WITCH WAY TO THE CANDY,
+and FANGS FOR STOPPING BY. Lettering remains six pixels high with equal margins.
+
+Rebuild with Pillow installed:
+
+```sh
+python tools/build_halloween_show.py --output assets --preview previews --scroll 0.24 --animation 0.29
+```
+
+Open `previews/halloween_after_dark.html` for an offline preview with chapter
+selection, pause, scrubbing, readable caption subtitles, and preview-speed control.
+The subtitle is a preview aid, not extra pixels on the physical sign. The HTML
+embeds its image and does not need a server or internet connection. The accompanying
+GIF contains complete scrolling messages and selected scenes; the HTML contains
+the entire show. The storyboard is a static sample of all 23 chapters.
+
