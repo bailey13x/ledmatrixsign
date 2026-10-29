@@ -224,12 +224,19 @@ then loops back to the beginning; the former final three repeated scenes are rem
 ## Christmas Winter Magic
 
 `assets/christmas_winter_magic.png` and its matching `.txt` contain a separate
-20-chapter Christmas show for the same 12 x 8 matrix. The 10186 x 8 strip runs
-about **13 minutes 7 seconds** at scroll 0.24 and animation 0.29. It uses the
+20-chapter Christmas show for the same 12 x 8 matrix. The 10040 x 8 strip runs
+about **12 minutes 32 seconds** at scroll 0.24 and animation 0.29. It uses the
 same native six-row lettering and hardware palette, with classic seasonal
 messages and distinct tree, Santa, snowman, reindeer, present, bell, wreath,
 candy cane, stocking, candle, gingerbread, train, cottage, ornament, star,
 sleigh, penguin, fireplace, snowflake, and snow-globe animations.
+
+The revised artwork gives Santa a clearer hat/beard silhouette, reserves headroom
+for the opening present, and separates the train cab and wheels. The tree lights
+from bottom to top, the engine arrives and departs with steam, the ornament swings
+from its hanger, and stockings frame the fireplace. Cyan outlines distinguish the
+penguin from the unlit background. The generator also exports
+`christmas_motion_review.png` with four poses of eight key scenes for visual review.
 
 ```sh
 python tools/build_christmas_show.py --output assets --preview previews
