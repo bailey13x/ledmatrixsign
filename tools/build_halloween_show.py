@@ -218,10 +218,7 @@ PROGRAM=[
  ('A monster smiles and waves',monster,'ITS ALIVE!','G'),
  ('A vampire opens his cape',vampire,'FANGS FOR STOPPING BY','P'),
  ('Candy unwraps',candy,'TRICK OR TREAT!','O'),
- ('The pumpkin lights up',pumpkin_reveal,'GIVE US SOMETHING GOOD TO EAT','Y'),
- ('The last dance',skeleton,'EAT DRINK AND BE SCARY','W'),
- ('A ghost says goodbye',ghost_flyby,'STAY SPOOKY!','W'),
- ('Until next Halloween',pumpkin,'HAPPY HAUNTING!','O')]
+ ('The pumpkin lights up',pumpkin_reveal,'GIVE US SOMETHING GOOD TO EAT','Y')]
 
 
 def html_preview(strip_path, chapters, commands, scroll, animation, output):
@@ -230,7 +227,7 @@ def html_preview(strip_path, chapters, commands, scroll, animation, output):
           'scroll':scroll,'animation':animation}
     html='''<!doctype html><meta charset="utf-8"><title>Halloween After Dark</title>
 <style>body{background:#101017;color:#f3ede4;font:17px system-ui;max-width:850px;margin:40px auto;padding:20px}h1{color:#ff7300}canvas{width:100%;max-width:576px;image-rendering:pixelated;display:block;margin:25px auto}button,select{font:inherit;padding:10px;margin:5px;background:#252331;color:white;border:1px solid #63536e;border-radius:8px}#caption{font-size:25px;color:#ffb04a;min-height:35px}.muted{color:#bbb3c5}#progress{width:100%}</style>
-<h1>Halloween After Dark</h1><p>23 Halloween scenes · Native 12 × 8 artwork · Full scrolling messages</p>
+<h1>Halloween After Dark</h1><p>20 Halloween scenes · Native 12 × 8 artwork · Full scrolling messages</p>
 <canvas id="screen" width="576" height="384"></canvas><div id="caption"></div>
 <p id="scene" class="muted"></p><button id="play">Pause</button><button id="restart">Restart chapter</button>
 <select id="chapters"></select><p><label>Preview speed <select id="rate"><option value="1">Actual timing</option><option value="2">2×</option><option value="3">3×</option></select></label></p>
