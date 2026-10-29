@@ -221,3 +221,33 @@ the entire show. The storyboard is a static sample of all 20 chapters.
 The show ends after GIVE US SOMETHING GOOD TO EAT and its pumpkin animation,
 then loops back to the beginning; the former final three repeated scenes are removed.
 
+## Christmas Winter Magic
+
+`assets/christmas_winter_magic.png` and its matching `.txt` contain a separate
+20-chapter Christmas show for the same 12 x 8 matrix. The 10186 x 8 strip runs
+about **13 minutes 7 seconds** at scroll 0.24 and animation 0.29. It uses the
+same native six-row lettering and hardware palette, with classic seasonal
+messages and distinct tree, Santa, snowman, reindeer, present, bell, wreath,
+candy cane, stocking, candle, gingerbread, train, cottage, ornament, star,
+sleigh, penguin, fireplace, snowflake, and snow-globe animations.
+
+```sh
+python tools/build_christmas_show.py --output assets --preview previews
+```
+
+Open `previews/christmas_winter_magic.html` for the complete interactive preview.
+The storyboard and message GIF are generated alongside it. Preview timing is
+0.24 / 0.29; actual playback uses the controller settings.
+
+All generated shows are separate selectable assets in the controller:
+
+- `halloween_marquee.png`
+- `halloween_marquee_3.png`
+- `halloween_midnight.png`
+- `halloween_after_dark.png` (20 chapters)
+- `christmas_winter_magic.png` (20 chapters)
+
+Reload the controller to update its local asset list. The original `halov2.png`
+remains on the Pi and is still the original boot default. Uploading/playing any
+new asset requires the Pi to be online; installing local assets does not sync it.
+

@@ -221,7 +221,7 @@ PROGRAM=[
  ('The pumpkin lights up',pumpkin_reveal,'GIVE US SOMETHING GOOD TO EAT','Y')]
 
 
-def html_preview(strip_path, chapters, commands, scroll, animation, output):
+def html_preview(strip_path, chapters, commands, scroll, animation, output, title='Halloween After Dark'):
     data={'image':base64.b64encode(strip_path.read_bytes()).decode(), 'chapters':chapters,
           'spans':[list(map(int,line.split()[0].split('-'))) for line in commands[1:]],
           'scroll':scroll,'animation':animation}
@@ -239,6 +239,8 @@ function chapter(){let i=0;data.chapters.forEach((ch,j)=>{if(x>=ch.start)i=j});r
 function draw(){oc.fillStyle='black';oc.fillRect(0,0,12,8);oc.drawImage(image,-x,0);if(x+12>image.width)oc.drawImage(image,image.width-x,0);let p=oc.getImageData(0,0,12,8).data;ctx.fillStyle='#050609';ctx.fillRect(0,0,c.width,c.height);for(let y=0;y<8;y++)for(let j=0;j<12;j++){let k=(y*12+j)*4,r=p[k],g=p[k+1],b=p[k+2];ctx.fillStyle=r+g+b?`rgb(${r},${g},${b})`:'#16151d';ctx.beginPath();ctx.arc(j*48+24,y*48+24,17,0,Math.PI*2);ctx.fill()}let i=chapter();select.value=i;document.querySelector('#caption').textContent=data.chapters[i].caption;document.querySelector('#scene').textContent=(i+1)+' / '+data.chapters.length+' — '+data.chapters[i].name;slider.value=x}
 function tick(){clearTimeout(timer);draw();if(!playing)return;let flip=data.spans.some(([a,b])=>x>=a&&x<=b);timer=setTimeout(()=>{x=(x+(flip?12:1))%image.width;tick()},1000*(flip?data.animation:data.scroll)/Number(document.querySelector('#rate').value))}
 document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'Pause':'Play';tick()};select.onchange=()=>{x=data.chapters[Number(select.value)].start;tick()};document.querySelector('#restart').onclick=()=>{x=data.chapters[chapter()].start;tick()};slider.oninput=()=>{x=Number(slider.value);let span=data.spans.find(([a,b])=>x>=a&&x<=b);if(span)x=span[0]+12*Math.floor((x-span[0])/12);tick()};image.onload=()=>{slider.max=image.width-1;tick()};image.src='data:image/png;base64,'+data.image;</script>'''
+    html=html.replace('Halloween After Dark',title)
+    html=html.replace('20 Halloween scenes',f'{len(chapters)} animated scenes')
     output.write_text(html.replace('DATA',json.dumps(data)),encoding='utf-8')
 
 
